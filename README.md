@@ -12,7 +12,7 @@ Introduction
 =================================================
 Currently the NMatrix has two ways to slice. The first way has been implemented by copping all elements of a slice in a new matrix. The new matrix is independent of source matrix and changing one doesn't change other. In Ruby code this way is provided by method `#slice`.
 
-`Ruby
+```Ruby
   require "nmatrix"
   require "pp"
 
@@ -26,11 +26,11 @@ Currently the NMatrix has two ways to slice. The first way has been implemented 
 
   pp r              #=> [999,2] [4,5]
   pp m              #=> [0,1,2] [3,4,5] [6,7,8]
-`
+```
 
 The second way to create a new matrix from a slice which contains only a reference to the source matrix. This method don't allocate new memory and provide access to elements of a source matrix by matrices-reference. When you change elements of such matrix really you change elements of the source matrix. For getting slicing by reference use method `#[]`. 
 
-`Ruby
+```Ruby
   require "nmatrix"
   require "pp"
 
@@ -43,7 +43,7 @@ The second way to create a new matrix from a slice which contains only a referen
 
   pp r              #=> [999,2] [4,5]
   pp m              #=> [0,999,2] [3,4,5] [6,7,8]
-`
+```
 
 Current implementation of slicing mechanism restricts a using algorithms and demands of developers two way of developing for new matrix operations:
 
