@@ -88,6 +88,7 @@ But we cannot use they simple as a continuous sequence when we have a matrix-ref
 
 We have a source dense matrix:
 
+|-|-|-|
 |1|2|3|
 |4|5|6|
 |7|8|9|
@@ -96,6 +97,7 @@ Its elements storage in the one-dim array 1,2,3,4,5,6,7,8,9
 
 When we have sliced by reference the matrix from point [1,1] with size [2,2] we could get the matrix:
 
+|-|-|
 |5|6|
 |8|9|
 
