@@ -67,9 +67,9 @@ For implementation slicing by reference the base storage structures have been ch
   struct  DENSE_STORAGE {
     size_t  dim;                     
     size_t* shape;                   
-    size_t* offset;                  \\ !!!
-	  int			count;                   \\ !!!
-	  STORAGE*		src;                 \\ !!!
+    size_t* offset;               // !!!
+    int			count;                // !!!
+    STORAGE*		src;              // !!!
     void* elements;
   }
 ```
@@ -88,23 +88,16 @@ But we cannot use they simple as a continuous sequence when we have a matrix-ref
 
 We have a source dense matrix:
 
--------
 |1|2|3|
-------
 |4|5|6|
-------
 |7|8|9|
--------
 
 Its elements storage in the one-dim array 1,2,3,4,5,6,7,8,9
 
 When we have sliced by reference the matrix from point [1,1] with size [2,2] we could get the matrix:
 
-----
 |5|6|
-----
 |8|9|
-----
 
 But `s->src->elements` still reference to the source matrix and have the array 1,2,3,4,5,6,7,8,9. We must access to elements using information about offsets relatively the source matrix.
 
